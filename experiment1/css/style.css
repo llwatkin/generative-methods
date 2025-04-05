@@ -29,7 +29,7 @@ body {
     padding: 1em;
     box-shadow: 2px 2px 5px gray;
     background: #dfdfd4;
-    width: 375px;
+    width: 300px;
 }
 
 #clicker {
@@ -39,4 +39,9 @@ body {
     border-radius: 50%;
     box-shadow: 2px 2px 5px gray;
     float: right;
+}
+
+#muffin-sketch {
+    display: block;
+    margin: auto;
 }
