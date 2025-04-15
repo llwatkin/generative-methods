@@ -1,38 +1,11 @@
-// sketch.js - purpose and description here
-// Author: Your Name
-// Date:
-
-// Here is how you might set up an OOP p5.js project
-// Note that p5.js looks for a file called sketch.js
-
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
-const VALUE1 = 1;
-const VALUE2 = 2;
+// sketch.js - Experiment 2: Living Impressions
+// Author: Lyle Watkins
+// Date: 04/15/2025
 
 // Globals
-let myInstance;
+let pond;
 let canvasContainer;
-var centerHorz, centerVert;
-
-class MyClass {
-    constructor(param1, param2) {
-        this.property1 = param1;
-        this.property2 = param2;
-    }
-
-    myMethod() {
-        // code to run when method is called
-    }
-}
-
-function resizeScreen() {
-  centerHorz = canvasContainer.width() / 2; // Adjusted for drawing logic
-  centerVert = canvasContainer.height() / 2; // Adjusted for drawing logic
-  console.log("Resizing...");
-  resizeCanvas(canvasContainer.width(), canvasContainer.height());
-  // redrawCanvas(); // Redraw everything based on new size
-}
+let generateButton = document.getElementById("generate-button");
 
 // setup() function is called once when the program starts
 function setup() {
@@ -40,40 +13,40 @@ function setup() {
   canvasContainer = $("#canvas-container");
   let canvas = createCanvas(canvasContainer.width(), canvasContainer.height());
   canvas.parent("canvas-container");
-  // resize canvas is the page is resized
 
-  // create an instance of the class
-  myInstance = new MyClass("VALUE1", "VALUE2");
+  colorMode(HSB);
 
-  $(window).resize(function() {
-    resizeScreen();
+  // Create and fill pond
+  pond = new Pond();
+  pond.fill();
+
+  // Generate button
+  generateButton.addEventListener("click", () => {
+    pond.seed++;
+    pond.clear();
+    pond.fill();
   });
-  resizeScreen();
 }
 
-// draw() function is called repeatedly, it's the main animation loop
 function draw() {
-  background(220);    
-  // call a method on the instance
-  myInstance.myMethod();
-
-  // Set up rotation for the rectangle
-  push(); // Save the current drawing context
-  translate(centerHorz, centerVert); // Move the origin to the rectangle's center
-  rotate(frameCount / 100.0); // Rotate by frameCount to animate the rotation
-  fill(234, 31, 81);
-  noStroke();
-  rect(-125, -125, 250, 250); // Draw the rectangle centered on the new origin
-  pop(); // Restore the original drawing context
-
-  // The text is not affected by the translate and rotate
-  fill(255);
-  textStyle(BOLD);
-  textSize(140);
-  text("p5*", centerHorz - 105, centerVert + 40);
+  background(getColor(BG_COLOR));
+  pond.draw();
 }
 
-// mousePressed() function is called once after every time a mouse button is pressed
-function mousePressed() {
-    // code to run when mouse is pressed
+// Returns a p5 Color object from an HSB dictionary ex. { h: 0, s: 0, b: 0 }
+// + optional color modification setting and amount
+function getColor(colorObj, setting, amt) {
+  if (setting == "variate") {
+    return color(colorObj.h + random(-amt, amt), colorObj.s + random(-amt, amt), colorObj.b + random(-amt, amt));
+  }
+  return color(colorObj.h, colorObj.s, colorObj.b);
+}
+
+// Gets a darker version of an existing p5 Color obj
+function getStroke(colorObj) {
+  return getColor({
+    h: hue(colorObj),
+    s: saturation(colorObj),
+    b: brightness(colorObj) - STROKE_DARKNESS
+  });
 }

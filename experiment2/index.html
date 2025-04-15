@@ -1,70 +1,105 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<head>
+		<!-- This title is used for tabs and bookmarks -->
+		<title>Pocket Pond</title>
 
-	<!-- Use UTF character set, a good idea with any webpage -->
-	<meta charset="UTF-8" />
-	<!-- Set viewport so page remains consistently scaled w narrow devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Use UTF character set, a good idea with any webpage -->
+		<meta charset="UTF-8" />
+		<!-- Set viewport so page remains consistently scaled w narrow devices -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
-	<link rel="stylesheet" type="text/css" href="../css/site.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+		<link rel="stylesheet" type="text/css" href="../css/site.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<!-- Load jQuery library -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
-	<!-- Load p5.js library -->
-	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+		<!-- Load jQuery library -->
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+		<!-- Load p5.js library -->
+		<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
 
-	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
-    <script type="text/javascript" src="../js/site.js" DEFER></script>
-	<!-- Use me for a JavaScript OOP Project -->
-	<script type="text/javascript" src="./js/project.js" DEFER></script>
-	<!-- Use me for a p5.js project -->
-	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
-</head>
-<body>
-	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
-	<main id="content">
-		<section>
+		<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+		<script type="text/javascript" src="../js/site.js" DEFER></script>
+		<!-- Use me for a p5.js project -->
+		<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+		<script type="text/javascript" src="./js/config.js" DEFER></script>
+		<script type="text/javascript" src="./js/fish.js" DEFER></script>
+		<script type="text/javascript" src="./js/leaf.js" DEFER></script>
+		<script type="text/javascript" src="./js/lilypad.js" DEFER></script>
+		<script type="text/javascript" src="./js/pebble.js" DEFER></script>
+		<script type="text/javascript" src="./js/pond.js" DEFER></script>
+		<script type="text/javascript" src="./js/ripple.js" DEFER></script>
+	</head>
+	<body>
+		<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+		<main id="content">
+			<section>
+				<h1>Experiment 2 - Living Impressions: Pocket Pond</h1>
 
-			<h1>Experiment X - Subject/Topic</h1>
-
-			<div class="minor-section">
-				<div id="canvas-container">
-					<!-- canvas will be added here -->
+				<div class="minor-section">
+					<div id="canvas-container">
+						<!-- canvas will be added here -->
+					</div>
+					<button id="generate-button">Generate New</button>
 				</div>
-                <div class="fullscreen-box">
-                    <button id="fullscreen">Fullscreen</button>
-                </div>
-			</div>
 
-			<div class="minor-section">
-				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
-			</div>
+				<div class="minor-section">
+					<h2>Description</h2>
+					<p>
+						A random pond generator, complete with animated fish
+						that swim around. It was based on this image.<br>
+						<br>
+						<img
+							src="assets/pond.jpg"
+							width="400px"
+						>
+					</p>
+				</div>
 
-			<div class="minor-section">
-				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
-			</div>
+				<div class="minor-section">
+					<h2>Technical</h2>
+					<p>
+						The pond is created bottom-up with a mix of immediate
+						and retained graphics. The pebbles, for example, are
+						drawn to a graphics layer only when a new pond is
+						generated, then an image of them is drawn every frame.
+						The animated elements all make use of p5.js's default
+						immediate graphics. Each time the generate button is
+						clicked, the random seed is incremented, resulting in a
+						new pond. The fish algorithm is a modified version of <a
+							href="https://p5js.org/examples/classes-and-objects-flocking/"
+						>this p5.js boids example</a>.
+					</p>
+				</div>
 
-			<div class="minor-section">
-				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
-			</div>
-
-		</section>
-		<nav id="links" class="minor-section">
-			<!-- Put link back to homepage here. -->
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-            </ul>
-		</nav>
-	</main>
-</body>
+				<div class="minor-section">
+					<h2>Reflection</h2>
+					<p>
+						I followed a particularly iterative process with this
+						experiment, gradually building upon elements and adding
+						complexity and visual depth as I went. This made adding
+						every feature seem easier and more approachable, as I
+						could break it down into smaller steps, but also made it
+						easier to give in to scope creep. I initially came into
+						this with the idea to have a static environment, but
+						with swimming fish as the element of life. That turned
+						into adding animation to their tails, then animation to
+						every environment element, and then adding shadows, and
+						so on. I am very happy with the outcome, but I wish I
+						could have finished by the deadline.
+					</p>
+				</div>
+			</section>
+			<nav id="links" class="minor-section">
+				<!-- Put link back to homepage here. -->
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+				</ul>
+			</nav>
+		</main>
+	</body>
 </html>
