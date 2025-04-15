@@ -120,7 +120,7 @@ class Fish {
             this.tailDirection = 1;
         if (this.tailAngle > this.size / 4 && this.tailDirection == 1)
             this.tailDirection = -1;
-        this.tailAngle += 0.25 * this.tailDirection * abs(this.velocity.x * 3);
+        this.tailAngle += 0.25 * this.tailDirection * abs(this.velocity.mag() * 3);
         fill(this.strokeColor);
         triangle(0, this.size / 2, this.tailAngle, this.size, 0, this.size / 1.25);
 
@@ -189,7 +189,7 @@ class Fish {
             this.tailDirection = 1;
         if (this.tailAngle > shadowSize / 4 && this.tailDirection == 1)
             this.tailDirection = -1;
-        this.tailAngle += 0.25 * this.tailDirection * abs(this.velocity.x * 3);
+        this.tailAngle += 0.25 * this.tailDirection * abs(this.velocity.mag() * 3);
         triangle(0, shadowSize / 2, this.tailAngle, shadowSize, 0, shadowSize / 1.25);
 
         // Body
