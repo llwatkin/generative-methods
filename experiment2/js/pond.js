@@ -22,7 +22,6 @@ class Pond {
     draw() {
         image(this.pebbles, 0, 0);
         this.drawLowerLilypadShadows();
-        this.drawFishShadows();
         image(this.vignette, 0, 0);
         this.drawFish();
         this.drawUpperLilypadShadows();
@@ -90,10 +89,6 @@ class Pond {
     drawFish() {
         // Pass entire list of fish to each fish individually
         for (let fish of this.fish) fish.run(this.fish);
-    }
-
-    drawFishShadows() {
-        for (let fish of this.fish) fish.drawShadow();
     }
 
     createLilypads() {

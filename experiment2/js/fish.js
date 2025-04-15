@@ -77,6 +77,8 @@ class Fish {
     }
 
     render() {
+        this.drawShadow();
+
         let theta = this.velocity.heading() + radians(90);
         push();
         fill(this.color);
@@ -224,7 +226,7 @@ class Fish {
     // Separation
     // Method checks for nearby fish and steers away
     separate(fish) {
-        let desiredSeparation = 40;
+        let desiredSeparation = 30;
         let steer = createVector(0, 0);
         let count = 0;
 
