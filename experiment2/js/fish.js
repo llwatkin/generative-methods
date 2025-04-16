@@ -126,9 +126,7 @@ class Fish {
 
         // Body
         fill(this.color);
-        beginShape();
         bezier(0, this.size / 1.25, -this.size, -this.size, this.size, -this.size, 0, this.size / 1.25);
-        endShape(CLOSE);
 
         // Dorsal fin (animated like the tail fin)
         fill(this.strokeColor);
@@ -156,46 +154,10 @@ class Fish {
 
         let shadowSize = this.size / 1.25;
 
-        // Fins
-        push();
-        rotate(radians(90));
-        bezier(
-            -shadowSize / 4,
-            0,
-            -shadowSize / 2,
-            -shadowSize / 2,
-            shadowSize / 2,
-            -shadowSize / 2,
-            -shadowSize / 4,
-            0
-        );
-        rotate(radians(180));
-        bezier(
-            shadowSize / 4,
-            0,
-            -shadowSize / 2,
-            -shadowSize / 2,
-            shadowSize / 2,
-            -shadowSize / 2,
-            shadowSize / 4,
-            0
-        );
-        ellipse(-shadowSize / 3, -shadowSize / 8, shadowSize / 4, shadowSize / 4);
-        ellipse(-shadowSize / 3, shadowSize / 8, shadowSize / 4, shadowSize / 4);
-        pop();
-
-        // Animate tail fin
-        if (this.tailAngle < -shadowSize / 4 && this.tailDirection == -1)
-            this.tailDirection = 1;
-        if (this.tailAngle > shadowSize / 4 && this.tailDirection == 1)
-            this.tailDirection = -1;
-        this.tailAngle += 0.25 * this.tailDirection * abs(this.velocity.mag() * 3);
-        triangle(0, shadowSize / 2, this.tailAngle, shadowSize, 0, shadowSize / 1.25);
-
         // Body
-        beginShape();
         bezier(0, shadowSize / 1.25, -shadowSize, -shadowSize, shadowSize, -shadowSize, 0, shadowSize / 1.25);
-        endShape(CLOSE);
+        // Tail fin
+        triangle(0, shadowSize / 2, this.tailAngle, shadowSize, 0, shadowSize / 1.25);
 
         pop();
     }

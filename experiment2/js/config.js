@@ -10,8 +10,10 @@ const PEBBLE_POS_MOD = 5; // Maximum amount of position variation in pebbles
 const PEBBLE_COLOR_MOD = 10; // Maximum amount of color variation
 
 // Lilypads
-const LILYPAD_COLORS = [{ h: 88, s: 57, b: 70 },
-{ h: 51, s: 57, b: 83 }];
+const LILYPAD_COLORS = [
+    { h: 88, s: 57, b: 70 },
+    { h: 51, s: 57, b: 83 }
+];
 const MIN_LILYPADS = 15;
 const MAX_LILYPADS = 30;
 const MIN_LILYPAD_SIZE = 50;
