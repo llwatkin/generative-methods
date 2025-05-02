@@ -118,11 +118,7 @@ function mouseClicked() {
         [0 - mouseX, mouseY],
         [camera_offset.x, camera_offset.y]
     );
-
-    if (window.p3_tileClicked) {
-        window.p3_tileClicked(world_pos[0], world_pos[1]);
-    }
-    return false;
+    if (window.p3_tileClicked) window.p3_tileClicked(world_pos[0], world_pos[1]);
 }
 
 
