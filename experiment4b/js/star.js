@@ -126,14 +126,17 @@ class StarType {
 
 class Ripple {
     constructor(size, star_color) {
-        this.size = size;
-        this.stroke_weight = 5;
+        this.x_size = size / 2;
+        this.y_size = size / 4;
+        this.stroke_weight = size / 3;
+        this.stroke_speed = size / 200;
         this.star_color = star_color;
     }
 
     update() {
-        this.size += 1;
-        this.stroke_weight -= 0.075;
+        this.x_size += 1;
+        this.y_size += 0.5;
+        this.stroke_weight -= this.stroke_speed;
         if (this.stroke_weight <= 0) this.stroke_weight = 0;
     }
 
@@ -143,12 +146,12 @@ class Ripple {
         strokeWeight(this.stroke_weight);
         noFill();
 
-        glow(this.star_color, 15);
-        ellipse(0, 0, this.size / 2, this.size / 4);
-        ellipse(0, 0, this.size / 2, this.size / 4);
+        glow(this.star_color, 10);
+        ellipse(0, 0, this.x_size, this.y_size);
+        ellipse(0, 0, this.x_size, this.y_size);
         glow(this.star_color, 5);
-        ellipse(0, 0, this.size / 2, this.size / 4);
-        ellipse(0, 0, this.size / 2, this.size / 4);
+        ellipse(0, 0, this.x_size, this.y_size);
+        ellipse(0, 0, this.x_size, this.y_size);
 
         pop();
     }
