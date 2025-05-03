@@ -3,7 +3,7 @@ const START_KEY = "Cosmecho";
 const TILE_WIDTH = 64;
 const TILE_HEIGHT = 32;
 
-const MIN_STAR_FREQ = 0.001; // Minimum frequency of stars
+const MIN_STAR_FREQ = 0.01; // Minimum frequency of stars
 const MAX_STAR_FREQ = 0.2; // Maximum frequency of stars
 
 const MID_NOTE_URLS = [
