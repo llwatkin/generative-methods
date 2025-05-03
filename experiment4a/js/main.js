@@ -58,7 +58,14 @@ function p3_tileClicked(i, j) {
 }
 
 function p3_drawBefore() {
-    for (let star of active_stars) star.update();
+    for (let star of active_stars) star.update(); // Update all active stars
+    for (let star of active_stars) {
+        if (star.volume == 0) { // If a star has gone quiet, it becomes inactive
+            let index = active_stars.indexOf(star);
+            star.clicked = false;
+            active_stars.splice(index, 1); // Remove star from active stars
+        }
+    }
 }
 
 function p3_drawTile(i, j) {
