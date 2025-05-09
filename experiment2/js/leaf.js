@@ -23,7 +23,7 @@ class Leaf {
         push();
         strokeWeight(MIDRIB_THICKNESS);
         rotate(noise(millis() / this.moveRate) / 3);
-        line(0, 0, 0, -this.size * 2);
+        line(0, 0, 0, -this.size * 3);
         pop();
 
         // Leaf body

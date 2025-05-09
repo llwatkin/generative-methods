@@ -2,6 +2,13 @@
 const VIGNETTE_WIDTH = 200;
 const VIGNETTE_BANDS = 5;
 
+// Environment
+const BG_COLOR = { h: 105, s: 12, b: 12 };
+const STROKE_DARKNESS = 10;
+const SHADOW_INTENSITY = 50;
+const SUN_ANGLE_X = 10;
+const SUN_ANGLE_Y = 5;
+
 // Pebbles
 const PEBBLE_COLOR = { h: 62, s: 54, b: 35 };
 const MIN_PEBBLE_SIZE = 5;
@@ -50,10 +57,3 @@ const MAX_FISH_SPEED = 1;
 const RIPPLE_COLOR = { h: 224, s: 10, b: 82 };
 const MAX_RIPPLE_SIZE = 10;
 const RIPPLE_INTENSITY = 20;
-
-// Environment
-const BG_COLOR = { h: 105, s: 12, b: 12 };
-const STROKE_DARKNESS = 10;
-const SHADOW_INTENSITY = 50;
-const SUN_ANGLE_X = 10;
-const SUN_ANGLE_Y = 5;
